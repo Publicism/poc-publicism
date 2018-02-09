@@ -1,0 +1,24 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close" (click)="closeModal()">
+            <span>&times;</span>
+        </button>
+        <h4 class="modal-title" (click)="closeModal()">{{ context.modalTitle }}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-bordered">
+                    <tr *ngFor="let f of context.files">
+                        <td style="width: 0;">
+                            <i [ngClass]="getFileTypeClass(f)"></i>
+                        </td>
+                        <td style="width: 100%;">
+                            <a href="{{ f.url }}" target="_blank">{{ f.name }}</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

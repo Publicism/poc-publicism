@@ -1,0 +1,67 @@
+@import "~spinkit/scss/spinkit";
+
+.animated {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}
+
+.ibox {
+  .table {
+    td {
+      height: 47px;
+      vertical-align: middle;
+      .btn {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.modal-body {
+  .form-group:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.data-object-content {
+  text-align: center;
+  .data-object-content__image {
+    max-width: 240px;
+    max-height: 240px;
+  }
+}
+
+.sk-three-bounce.index-preloader {
+  height: 22px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  .sk-child {
+    background-color: #fff;
+  }
+}
+
+.sk-three-bounce.table-preloader {
+  .sk-child {
+    width: 10px;
+    height: 10px;
+    background-color: #777;
+  }
+  &.small-preloader {
+    margin: 5px auto;
+    padding: 0;
+  }
+}
+
+.tooltip {
+  .tooltip-inner {
+    max-width: 100%;
+  }
+}
+
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}

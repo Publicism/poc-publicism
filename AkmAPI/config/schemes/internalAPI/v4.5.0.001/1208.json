@@ -1,0 +1,33 @@
+{
+  "1208":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00096",
+      "notes":"The length of the remainder of the response."
+    },
+    "RequestID":{
+      "max":4,
+      "value":"1208",
+      "notes":"Identifies the type of response."
+    },
+    "ReturnCode":{
+      "max":4,
+      "value":"0000",
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"Blank right padded. Indicates the key name."
+    },
+    "PublicKeyInstance":{
+      "max":24,
+      "notes":"Indicates the public key instance."
+    },
+    "PrivateKeyInstance":{
+      "max":24,
+      "notes":"Indicates the private key instance."
+    },
+
+    "convert":["TransactionLength", "RequestID", "ReturnCode", "KeyName",  "PublicKeyInstance",  "PrivateKeyInstance"]
+  }
+}

@@ -1,0 +1,38 @@
+<div>
+    <div class="row wrapper border-bottom white-bg page-heading ng-scope">
+        <div class="col-lg-10">
+            <h2>Request History</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a [routerLink]="['/members']">Home</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/request-history']">Request History</a>
+                </li>
+                <li class="active">
+                    <strong>Data Object Request Details</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight ng-scope">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <ngx-app-request-history-detail></ngx-app-request-history-detail>
+                        <div class="md"></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a class="btn btn-default" [routerLink]="['/request-history']">
+                                    <i class="fa fa-chevron-left"></i> Back
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

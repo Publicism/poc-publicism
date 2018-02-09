@@ -1,0 +1,87 @@
+<div>
+    <div class="row wrapper border-bottom white-bg page-heading ng-scope">
+        <div class="col-lg-10">
+            <h2>Balance</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a>Home</a>
+                </li>
+                <li class="active">
+                    <strong>Balance</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight ng-scope">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <span class="label label-primary">Current Balance</span>
+                    </div>
+                    <div class="ibox-content">
+                        <div *ngIf="loading">
+                            <div class="sk-three-bounce table-preloader small-preloader">
+                                <div class="sk-child sk-bounce1"></div>
+                                <div class="sk-child sk-bounce2"></div>
+                                <div class="sk-child sk-bounce3"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix" *ngIf="!loading">
+                            <!--<h1 class="no-margins"><ng2-odometer [number]="calculateNewBalance()" [value]="balanceData.balance" [observable]="observable" [auto]="false" [format]="'d'"></ng2-odometer></h1>-->
+                            <h1 class="no-margins" [@visibilityChanged]="balanceVisible">{{ balanceData.balance }}</h1>
+                            <small>wei</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <span class="label label-info">Unsettled Incoming Amount</span>
+                    </div>
+                    <div class="ibox-content">
+                        <div *ngIf="loading">
+                            <div class="sk-three-bounce table-preloader small-preloader">
+                                <div class="sk-child sk-bounce1"></div>
+                                <div class="sk-child sk-bounce2"></div>
+                                <div class="sk-child sk-bounce3"></div>
+                            </div>
+                        </div>
+                        <ng-container *ngIf="!loading">
+                            <div class="clearfix">
+                                <h1 class="no-margins pull-left" [@visibilityChanged]="balanceVisible">{{ balanceData.incoming }}</h1>
+                                <!--<h1 class="no-margins pull-left"><ng2-odometer [number]="0" [value]="balanceData.incoming" [observable]="observable" [auto]="false" [format]="'d'"></ng2-odometer></h1>-->
+                                <button type="button" class="btn btn-info pull-right" (click)="doSettle()" [disabled]="balanceData.incoming === 0" [ladda]="buttonLoading">Settle</button>
+                            </div>
+                            <small>wei</small>
+                        </ng-container >
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <span class="label label-warning">Unsettled Outcoming Amount</span>
+                    </div>
+                    <div class="ibox-content">
+                        <div *ngIf="loading">
+                            <div class="sk-three-bounce table-preloader small-preloader">
+                                <div class="sk-child sk-bounce1"></div>
+                                <div class="sk-child sk-bounce2"></div>
+                                <div class="sk-child sk-bounce3"></div>
+                            </div>
+                        </div>
+                        <ng-container *ngIf="!loading">
+                            <div class="clearfix">
+                                <h1 class="no-margins pull-left">{{ balanceData.outcoming }}</h1>
+                            </div>
+                            <small>wei</small>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

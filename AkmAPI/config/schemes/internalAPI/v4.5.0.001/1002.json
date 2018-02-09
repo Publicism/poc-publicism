@@ -1,0 +1,28 @@
+{
+  "1002":{
+    "HeaderLength":{
+      "max":5,
+      "value":"00072",
+      "notes":"The length of the remainder of the response."
+    },
+    "ResponseID":{
+      "max":4,
+      "value":"1002",
+      "notes":"Identifies the type of response."
+    },
+    "ReturnCode":{
+      "max":4,
+      "value":"0000",
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"Blank right padded. Indicates the key name."
+    },
+    "Instance":{
+      "max":24,
+      "notes":"Indicates the key instance."
+    },
+    "convert":["HeaderLength", "ResponseID", "ReturnCode", "KeyName",  "Instance"]
+  }
+}

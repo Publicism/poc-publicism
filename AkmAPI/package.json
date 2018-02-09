@@ -1,0 +1,33 @@
+{
+  "name": "AkmAPI",
+  "version": "0.0.1",
+  "main": "server.js",
+  "author": "Vladimir Kotov",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2",
+    "nock": "^9.0.14",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  },
+  "dependencies": {
+    "btoa": "^1.1.2",
+    "fs-extra": "^4.0.0",
+    "highland": "^2.11.1",
+    "koa": "^2.3.0",
+    "koa-body": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.0.1",
+    "koa-pug": "^3.0.0-2",
+    "koa-router": "^7.2.1",
+    "koa-static": "^4.0.1",
+    "lodash": "^4.17.4",
+    "nconf": "^0.8.4"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha ./test",
+    "test-api": "./node_modules/mocha/bin/mocha ./test/API"
+  }
+}

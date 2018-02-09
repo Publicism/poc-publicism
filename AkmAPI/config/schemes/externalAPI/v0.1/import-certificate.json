@@ -1,0 +1,37 @@
+{
+  "import-certificate":{
+    "CertificateType":{
+      "max":1,
+      "validation":{
+        "value":["A","C"]
+      },
+      "notes":"ASCII, case insensitive.  A - CA certificate. C - Client certificate"
+    },
+    "CertificateName":{
+      "max":64,
+      "notes":"CaseSensitive, left justified, blank padded on the right. Must be a file with a .pem extension but the .pem is not included in the name."
+    },
+    "OverwriteFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"Y - Overwrite existing certificate. N - Do not overwrite"
+    },
+    "ValueLength":{
+      "optional": true,
+      "notes":"ASCII. Right-justified, zero-filled on the left. The length of the certificate data field.",
+      "format":"'Calculates automatically"
+    },
+    "Value":{
+      "optional": true,
+      "max":16305,
+      "format": "Must be in the request body and have name is Value"
+    },
+    "RESTful":{
+      "schema":"CertificateType/CertificateName/OverwriteFlag",
+      "method":"POST",
+      "title":"This transaction is used to import a certifcate into Alliance Key manager."
+    }
+  }
+}

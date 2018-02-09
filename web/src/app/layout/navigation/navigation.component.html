@@ -1,0 +1,44 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="profile-element">
+                    <img alt="image" class="img-circle profile-element__img" src="assets/img/logo_circle_re.png"/>
+                </div>
+                <div class="text-center member-info">
+                    <span class="label label-info">Member {{ currentMemberId }}</span>
+                </div>
+            </li>
+            <li routerLinkActive="active">
+                <a [routerLink]="['/my-network']">
+                    <i class="fa fa-globe"></i> <span class="nav-label ng-binding">My Network Status</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a [routerLink]="['/members']">
+                    <i class="fa fa-users"></i> <span class="nav-label ng-binding">Members</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a [routerLink]="['/data-objects']">
+                    <i class="fa fa-pie-chart"></i> <span class="nav-label ng-binding">Data Objects</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a [routerLink]="['/request-data-objects']">
+                    <i class="fa fa-paper-plane"></i> <span class="nav-label ng-binding">Request Data Objects</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a [routerLink]="['/request-history']">
+                    <i class="fa fa-history"></i> <span class="nav-label ng-binding">Request History</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a [routerLink]="['/balance']">
+                    <i class="fa fa-money"></i> <span class="nav-label ng-binding">Balance</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

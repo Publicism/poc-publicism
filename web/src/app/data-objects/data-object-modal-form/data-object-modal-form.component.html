@@ -1,0 +1,92 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close" (click)="closeModal()">
+            <span>&times;</span>
+        </button>
+        <h4 class="modal-title" (click)="closeModal()">{{ context.modalTitle }}</h4>
+    </div>
+    <form action="" *ngIf="context.type === 'files'" #filesForm="ngForm" (ngSubmit)="formSubmit(filesForm.value)">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <input name="name" placeholder="Name" class="form-control" [(ngModel)]="model.name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" placeholder="Upload file" accept="image/jpeg,image/png,image/gif" class="form-control" (change)="selectFile($event)">
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="number" name="price" placeholder="Price" class="form-control" [(ngModel)]="model.price">
+                            <span class="input-group-addon">wei</span>
+                        </div>
+                    </div>
+                    <h4>Allowed members:</h4>
+                    <div *ngIf="loading">
+                        <div class="sk-three-bounce table-preloader">
+                            <div class="sk-child sk-bounce1"></div>
+                            <div class="sk-child sk-bounce2"></div>
+                            <div class="sk-child sk-bounce3"></div>
+                        </div>
+                    </div>
+                    <div class="form-group" *ngIf="members">
+                        <button class="btn btn-info" type="button" (click)="selectAll(members)" [disabled]="!members">Check all</button>
+                        <button class="btn btn-warning" type="button" (click)="unselectAll(members)" [disabled]="!members">Uncheck all</button>
+                        <br><br>
+                        <div class="" *ngFor="let member of members">
+                            <label class="form-control">
+                                <input type="checkbox" class="" name="member{{ member.memberid }}" [checked]="_permissions[member.memberid]" [(ngModel)]="_permissions[member.memberid]">
+                                {{ member.membername }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" [disabled]="!filesForm.form.valid || (!file && !context.dataObject)" [ladda]="buttonLoading">Submit</button>
+        </div>
+    </form>
+    <form action="" *ngIf="context.type === 'html'" #htmlForm="ngForm" (ngSubmit)="formSubmit(htmlForm.value)">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <input name="name" placeholder="Name" class="form-control" [(ngModel)]="model.name" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="content" placeholder="Enter HTML code" class="form-control" [(ngModel)]="model.content" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="number" name="price" placeholder="Price" class="form-control" [(ngModel)]="model.price">
+                            <span class="input-group-addon">wei</span>
+                        </div>
+                    </div>
+                    <h4>Allowed members:</h4>
+                    <div *ngIf="loading">
+                        <div class="sk-three-bounce table-preloader">
+                            <div class="sk-child sk-bounce1"></div>
+                            <div class="sk-child sk-bounce2"></div>
+                            <div class="sk-child sk-bounce3"></div>
+                        </div>
+                    </div>
+                    <div class="form-group" *ngIf="members?.length">
+                        <button class="btn btn-info" type="button" (click)="selectAll(members)" [disabled]="!members">Check all</button>
+                        <button class="btn btn-warning" type="button"  (click)="unselectAll(members)" [disabled]="!members">Uncheck all</button>
+                        <br><br>
+                        <div class="" *ngFor="let member of members">
+                            <label class="form-control">
+                                <input type="checkbox" class="" name="member{{ member.memberid }}" [checked]="_permissions[member.memberid]" [(ngModel)]="_permissions[member.memberid]">
+                                {{ member.membername }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" [disabled]="!htmlForm.form.valid" [ladda]="buttonLoading">Submit</button>
+        </div>
+    </form>
+</div>

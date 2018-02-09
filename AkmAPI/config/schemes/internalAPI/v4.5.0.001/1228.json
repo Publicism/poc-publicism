@@ -1,0 +1,42 @@
+{
+  "1228":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00083",
+      "notes":"The length of the remainder of the request."
+    },
+    "TransactiontID":{
+      "max":4,
+      "value":"1228",
+      "notes":"Identifies the type of Transaction."
+    },
+    "ReturnCode":{
+      "max":4,
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"ASCII, left-justified, with blank padding on the right. May be blank if instance is provided"
+    },
+    "Instance":{
+      "max":24,
+      "notes":"Base64 encoding. Case sensitive.."
+    },
+    "KeySizeBits":{
+      "max":5,
+      "validation":{
+        "value":["01024","02048","03072","04096"]
+      },
+      "notes":"ASCII, right-justified, with leading zeros."
+    },
+    "ValueLength":{
+      "max":5,
+      "notes":"Right-justified, zero-filled on the left. The length of the value field."
+    },
+    "Value":{
+      "notString":true,
+      "notes":"The binary contents of the key in DER format."
+    },
+    "convert":["TransactionLength", "TransactiontID", "ReturnCode", "KeyName",  "Instance", "KeySizeBits", "ValueLength" , "Value" ]
+  }
+}

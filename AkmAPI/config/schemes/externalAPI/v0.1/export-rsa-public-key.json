@@ -1,0 +1,18 @@
+{
+  "export-rsa-public-key":{
+    "KeyName":{
+      "max":40,
+      "notes":"Blank right padded. Indicates the name of the desired key."
+    },
+    "Instance":{
+      "optional": true,
+      "max":24,
+      "notes":"Base64 encoding. Case insensitive. All blanks is current instance"
+    },
+    "RESTful":{
+      "schema":"KeyName/Instance",
+      "method":"GET",
+      "title":"Use this command to export an RSA public key from AKM to your filesystem"
+    }
+  }
+}

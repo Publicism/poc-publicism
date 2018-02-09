@@ -1,0 +1,1 @@
+geth --password ci/misc/geth_accounts_psw.txt --datadir ./datadir account new

@@ -1,0 +1,24 @@
+{
+  "1227":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00068",
+      "notes":"The length of the remainder of the request."
+    },
+    "RequestID":{
+      "max":4,
+      "value":"1227",
+      "notes":"Identifies the type of request."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"ASCII, left-justified, with blank padding on the right. May be blank if instance is provided"
+    },
+    "Instance":{
+      "optional": true,
+      "max":24,
+      "notes":"All blanks means use key name only. If key name and instance use key name and edit for instance."
+    },
+    "convert":["TransactionLength", "RequestID", "KeyName", "Instance"]
+  }
+}

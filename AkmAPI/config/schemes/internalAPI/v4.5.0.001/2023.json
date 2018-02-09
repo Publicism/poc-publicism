@@ -1,0 +1,31 @@
+{
+  "2023":{
+    "HeaderLength":{
+      "max":5,
+      "value":"00071",
+      "notes":"The length of the remainder of the request."
+    },
+    "RequestID":{
+      "max":4,
+      "value":"2023",
+      "notes":"Identifies the type of request."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"Blank right padded. Indicates the name of the desired key. Leave blank and specify the Instance if you do not want to store the 40-byte KeyName field."
+    },
+    "Instance":{
+      "optional": true,
+      "max":24,
+      "notes":"Indicates the desired key instance.Use all blanks for the current instance."
+    },
+    "KeyFormat":{
+      "max":3,
+      "validation":{
+        "value":["DER"]
+      },
+      "notes":"Indicates the desired key format."
+    },
+    "convert":["HeaderLength", "RequestID", "KeyName",  "Instance", "KeyFormat" ]
+  }
+}

@@ -1,0 +1,34 @@
+mixin iter(list)
+    ul
+        each val, index in list
+            - if(index!=='RESTful' && index!=='convert')
+                - if(typeof val==='object')
+                    li #{index}
+                    +iter(val)
+                - else
+                    li <strong>#{index}</strong>: #{val}
+
+mixin panel(exter, inter)
+    each val, index in exter
+        div.panel-group.wrap(id='accordion', role='tablist', aria-multiselectable='true')
+            div.panel
+                div.panel-heading(role='tab', id='heading'+ index)
+                    h4.panel-title
+                        a(role='button' data-toggle='collapse' data-parent='#accordion' href='#' + index aria-expanded='true' aria-controls=index)
+                            - var method = index.replace(/.*?-/,'')
+                            - var imports = index.search('import')>=0 ? '/import':''
+                            - var exports = index.search('export')>=0 ? '/export':''
+                            - var encrypt = index.search('encrypt')>=0 ? '/encrypt':''
+                            - var decrypt = index.search('decrypt')>=0 ? '/decrypt':''
+                            |#{val.request.RESTful.method} #{method}
+                    .small(style="opacity:0.4;") #{index}.json
+                div(id = index, class='panel-collapse collapse', role='tabpanel', aria-labelledby='heading'+ index)
+                    div.panel-body
+                        h3 #{val.request.RESTful.title}
+                        h4 request
+                        small <strong>#{decrypt}#{encrypt}#{exports}#{imports}/#{method}/#{val.request.RESTful.schema}</strong>
+                        hr
+                        +iter(val.request)
+                        hr
+                        h4 response
+                        +iter(inter[index].response)

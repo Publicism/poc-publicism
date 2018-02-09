@@ -1,0 +1,26 @@
+{
+  "1141":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00069",
+      "notes":" ASCII, right-justified, with leading zeros. The length of the remainder of the transaction."
+    },
+    "RequestID":{
+      "max":4,
+      "value":"1141",
+      "notes":"Identifies the type of transaction."
+    },
+    "CertificateType":{
+      "max":1,
+      "validation":{
+        "value":["A","C"]
+      },
+      "notes":"ASCII, case insensitive.  A - CA certificate. C - Client certificate"
+    },
+    "CertificateName":{
+      "max":64,
+      "notes":"ASCII. Left justified, blank filled. The name of the CA certificate without the path."
+    },
+    "convert":["TransactionLength", "RequestID", "CertificateType", "CertificateName" ]
+  }
+}

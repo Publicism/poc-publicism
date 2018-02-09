@@ -1,0 +1,14 @@
+{
+  "delete-symmetric-key":{
+    "KeyName":{
+      "type":"string",
+      "max":40,
+      "notes":"Blank right padded. Indicates the name of the desired key."
+    },
+    "RESTful":{
+      "schema":"KeyName",
+      "method":"DELETE",
+      "title":"This transaction is used to delete a symmetric encryption key. The key must have the attribute of being deletable. The delete cannot be reversed. The only way to recover a deleted key is to restore a backup of the key store."
+    }
+  }
+}

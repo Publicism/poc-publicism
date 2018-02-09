@@ -1,0 +1,27 @@
+{
+  "1016":{
+    "HeaderLength":{
+      "max":5,
+      "value":"00048",
+      "notes":"The length of the remainder of the request."
+    },
+    "RequestID": {
+      "max": 4,
+      "value": "1016",
+      "notes": "Identifies the type of request."
+    },
+    "ReturnCode":{
+      "max":4,
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"Blank right padded. Indicates the name of the desired key."
+    },
+    "Instance":{
+      "max":24,
+      "notes":"Indicates the key instance."
+    },
+    "convert":["HeaderLength", "RequestID", "ReturnCode", "KeyName", "Instance" ]
+  }
+}

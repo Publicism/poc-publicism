@@ -1,0 +1,27 @@
+{
+  "1218":{
+    "HeaderLength":{
+      "max":5,
+      "value":"00056",
+      "notes":"The length of the remainder of the request."
+    },
+    "RequestID": {
+      "max": 4,
+      "value": "1218",
+      "notes": "Identifies the type of request."
+    },
+    "ReturnCode":{
+      "max":4,
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"Blank right padded. Indicates the name of the desired key."
+    },
+    "KeyDeletedDate":{
+      "max":8,
+      "notes":"ASCII. CCYYMMDD format."
+    },
+    "convert":["HeaderLength", "RequestID", "ReturnCode", "KeyName", "KeyDeletedDate" ]
+  }
+}

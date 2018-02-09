@@ -1,0 +1,40 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "google"
+  ],
+  "plugins": [
+    "mocha"
+  ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 8
+  },
+  "rules": {
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "max-len": [
+      "error",
+      120
+    ],
+    "no-console": [
+      "off"
+    ],
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": [
+      "off"
+    ]
+  }
+}

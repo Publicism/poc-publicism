@@ -1,0 +1,43 @@
+{
+  "2024":{
+    "HeaderLength":{
+      "max":5,
+      "value":"00085",
+      "notes":"The length of the remainder of the response."
+    },
+    "ResponseID":{
+      "max":4,
+      "value":"2024",
+      "notes":"Identifies the type of response."
+    },
+    "ReturnCode":{
+      "max":4,
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"Blank right padded. Indicates the key name."
+    },
+    "Instance":{
+      "max":24,
+      "notes":"Indicates the key instance."
+    },
+    "ExpirationDate":{
+      "max":8,
+      "notes":"CCYYMMDD format. Indicates the date that the returned key instance was created via rollover of the original key. The date that the new instance is created is the LastRolloverDate. 00000000 is returned if the key has never been rolled (i.e. if it is the original key)."
+    },
+    "KeySizeBits":{
+      "max":5,
+      "notes":"The size of the key in bits."
+    },
+    "KeyLenBytes":{
+      "max":5,
+      "notes":"The number of bytes in the DER encoded public key. If the key is 1024-bits the field length is 140 bytes, if the key is 2048-bits the length is 270 bytes, if the key is 3072-bits the length is 398 bytes, and if the key is 4096-bits the length is 526 bytes."
+    },
+    "KeyValue":{
+      "max":128,
+      "notes":"The actual key value, blank right padded."
+    },
+    "convert":["HeaderLength", "ResponseID", "ReturnCode", "KeyName",  "Instance", "ExpirationDate", "KeySizeBits", "KeyLenBytes", "KeyValue" ]
+  }
+}

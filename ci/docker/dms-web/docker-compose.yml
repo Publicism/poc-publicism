@@ -1,0 +1,18 @@
+version: '2'
+services:
+  dms-web-1:
+    image: ${DMS_WEB_IMG_NAME}
+    ports:
+     - "${EXT_WEB_PORT_M1}:${INT_WEB_PORT}"
+  dms-web-2:
+    image: ${DMS_WEB_IMG_NAME}
+    ports:
+     - "${EXT_WEB_PORT_M2}:${INT_WEB_PORT}"
+  dms-web-3:
+    image: ${DMS_WEB_IMG_NAME}
+    ports:
+     - "${EXT_WEB_PORT_M3}:${INT_WEB_PORT}"
+  dms-web-4:
+    image: ${DMS_WEB_IMG_NAME}
+    ports:
+     - "${EXT_WEB_PORT_M4}:${INT_WEB_PORT}"

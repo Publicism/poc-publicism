@@ -1,0 +1,12 @@
+{
+  "interInterface":{
+    "host":"52.160.88.17",
+    "port":6000,
+    "adminPort":6001,
+    "encryptDecryptPort":6003
+  },
+  "RESTful":{
+    "host":"localhost",
+    "port":3000
+  }
+}

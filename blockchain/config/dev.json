@@ -1,0 +1,17 @@
+{
+  "server": {
+    "port": 5000,
+    "address": "0.0.0.0"
+  },
+  "member": {
+    "id": "memberId"
+  },
+  "eth": {
+    "account": "0xed9d02e382b34818e88b88a309c7fe71e65f419d",
+    "api": "http://localhost:8545"
+  },
+  "mongo": {
+    "address": "mongodb://localhost:27017",
+    "database": "blockchain"
+  }
+}

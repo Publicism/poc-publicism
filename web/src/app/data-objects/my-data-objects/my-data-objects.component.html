@@ -1,0 +1,112 @@
+<div>
+    <div class="row wrapper border-bottom white-bg page-heading ng-scope">
+        <div class="col-lg-10">
+            <h2>Explore Data Objects</h2>
+            <h3 class="text-info" *ngIf="!(_selectedMember && _selectedMember.hasOwnProperty('id'))">This is Member {{currentMemberId}}</h3>
+            <h3 class="text-info" *ngIf="_selectedMember && _selectedMember.hasOwnProperty('id')">Listing Member {{_selectedMember.id}}</h3>
+            <ol class="breadcrumb">
+                <li>
+                    <a>Home</a>
+                </li>
+                <li class="active">
+                    <strong>Data Objects</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight ng-scope">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div *ngIf="!members.length">
+                            <div class="sk-three-bounce table-preloader">
+                                <div class="sk-child sk-bounce1"></div>
+                                <div class="sk-child sk-bounce2"></div>
+                                <div class="sk-child sk-bounce3"></div>
+                            </div>
+                        </div>
+                        <app-members-selector-dropdown *ngIf="members.length" [members]="members" (onSelectedMember)="doRequestDOs($event)"></app-members-selector-dropdown>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Data Object ID</th>
+                                    <th>Hash</th>
+                                    <th>Data Object Name</th>
+                                    <th>Data Object Price</th>
+                                    <th>Created At</th>
+                                    <th>Updated At</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="currentMemberId === selectedMemberId">
+                                <tr *ngFor="let dataObject of dataObjects">
+                                    <td>{{ dataObject.doid }}</td>
+                                    <td>{{ dataObject.dohash }}</td>
+                                    <td>{{ dataObject.info.name }}</td>
+                                    <td>{{ dataObject.info.price }}</td>
+                                    <td>{{ dataObject.createdate | amDateFormat: 'YYYY-MM-DD HH:mm:ss' }}</td>
+                                    <td>{{ dataObject.updatedate | amDateFormat: 'YYYY-MM-DD HH:mm:ss' }}</td>
+                                    <td class="text-right">
+                                        <button class="btn btn-primary btn-sm" (click)="showContent(dataObject)">
+                                            <i class="fa fa-file-text-o"></i> Show Content
+                                        </button>
+                                        <button class="btn btn-primary btn-sm" (click)="updateContent(dataObject); $event.stopPropagation()">
+                                            <i class="fa fa-pencil"></i> Update Content
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody *ngIf="currentMemberId !== selectedMemberId">
+                                <tr *ngFor="let dataObject of dataObjects">
+                                    <td>{{ dataObject.doid }}</td>
+                                    <td>{{ dataObject.dohash }}</td>
+                                    <td>{{ dataObject.info.name }}</td>
+                                    <td>{{ dataObject.info.price }} wei</td>
+                                    <td>{{ dataObject.createdate | amDateFormat: 'YYYY-MM-DD HH:mm:ss' }}</td>
+                                    <td>{{ dataObject.updatedate | amDateFormat: 'YYYY-MM-DD HH:mm:ss' }}</td>
+                                    <td class="text-right">
+                                        <button class="btn btn-primary btn-sm" (click)="showContent(dataObject)" *ngIf="isRequested(dataObject)">
+                                            <i class="fa fa-file-text-o"></i> Show Content
+                                        </button>
+                                        <button class="btn btn-primary btn-sm " (click)="onSearchDataObjectId(dataObject) " *ngIf="!isRequested(dataObject)">
+                                            <i class="fa fa-file-text-o "></i> {{ buttonText[dataObject.doid] }}
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div *ngIf="tableLoading ">
+                            <div class="sk-three-bounce table-preloader ">
+                                <div class="sk-child sk-bounce1 "></div>
+                                <div class="sk-child sk-bounce2 "></div>
+                                <div class="sk-child sk-bounce3 "></div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-6 ">
+                                <div dropdown class="btn-group ">
+                                    <button dropdownToggle type="button " class="btn btn-primary dropdown-toggle ">
+                                        <i class="fa fa-plus "></i>&nbsp;Add Data Object <span class="caret "></span>
+                                    </button>
+                                    <ul *dropdownMenu class="dropdown-menu ">
+                                        <li>
+                                            <a href="# " (click)="addDataObject( 'files'); false ">
+                                                <i class="fa fa-files-o "></i> Files
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="# " (click)="addDataObject( 'html'); false ">
+                                                <i class="fa fa-file-code-o "></i> HTML Document
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

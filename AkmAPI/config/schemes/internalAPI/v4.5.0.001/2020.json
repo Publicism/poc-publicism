@@ -1,0 +1,49 @@
+{
+  "2020":{
+    "HeaderLength":{
+      "max":5,
+      "partial": true,
+      "value":"00039",
+      "notes":"The length of the remainder of the response."
+    },
+    "ResponseID":{
+      "max":4,
+      "partial": true,
+      "value":"2020",
+      "notes":"Identifies the type of response."
+    },
+    "ReturnCode":{
+      "max":4,
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "EndOfResponseFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"This field indicates whether the current request is complete, or whether the data has been split in two parts and the second part is being sent in a partial request."
+    },
+    "PackedFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"Indicates whether the server should pack the responses. If PackedFlag is set to Y on a request, this means the server will receive this request, formulate a response, and then wait for another request. Then it will try to fit as much data from the second response as it can in the same TLS record as the first response. If all of the data from the second response will not fit in the record, it will send as much as it can in that record and then send the rest of the data in a partial response. If PackedFlag is set to N on a request, the server will send the response immediately. If PackedFlag is set to Y on a response, it means the response has been packed by the server. If PackedFlag is set to N on a response, it means the response has not been packed by the server."
+    },
+    "CipherTextLength":{
+      "max":5,
+      "notes":"This field indicates the length of the CipherText field returned in encryption responses and sent in decryption requests."
+    },
+    "Instance":{
+      "max":24,
+      "partial": true,
+      "notes":"Indicates the key instance."
+    },
+    "CipherText":{
+      "notString": true,
+      "max":16272,
+      "notes":"The actual key value, blank right padded."
+    },
+    "convert":["HeaderLength", "ResponseID", "ReturnCode", "EndOfResponseFlag",  "PackedFlag", "CipherTextLength", "Instance", "CipherText" ]
+  }
+}

@@ -1,0 +1,2 @@
+#!/bin/sh
+geth --datadir ./datadir --verbosity 3 --rpc --rpcport 8546 --gasprice 1 --rpcapi="db,eth,net,web3,personal,admin" --mine --minerthreads=1 --etherbase=0xd8cc7da026c44af04dc73578b17efb7f6f87a0f9 --rpccorsdomain "*"   --unlock 0,1,2,3,4 --password geth_accounts_psw.txt --ipcpath ~/Library/Ethereum/geth.ipc

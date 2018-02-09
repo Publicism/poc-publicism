@@ -1,0 +1,46 @@
+{
+  "1025":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00136",
+      "notes":"The length of the remainder of the transaction."
+    },
+    "RequestID":{
+      "max":4,
+      "value":"1025",
+      "notes":"Identifies the type of transaction."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"Blank right padded. Indicates the name of the desired key."
+    },
+    "KeyInstance":{
+      "max":24,
+      "notes":"Base64 encoding. Case insensitive. All blanks is current instance"
+    },
+    "KeyFormat":{
+      "type":"string",
+      "max":3,
+      "validation":{
+        "value": ["BIN","B16","B64","RSA" ]
+      },
+      "notes":"Indicates the desired key format."
+    },
+    "RSACertificateName":{
+      "optional": true,
+      "type":"string",
+      "max": 64,
+      "notes":"64-byte, ASCII. Case sensitive, left justified, blank padded on the right. Must have .pem extension. This is the name of the RSA Private Key used to decrypt. If not exporting using RSA then set this field to 64 blanks."
+    },
+    "RSAPaddingMode":{
+      "optional": true,
+      "type":"string",
+      "max":1,
+      "validation":{
+        "value":["1","2"]
+      },
+      "notes":"1 = RSA_PKCS1_PADDING. 2 = RSA_PKCS1_OAEP_PADDING (recommended). Note: exporting with RSA_NO_PADDING is considered insecure and is therefore not supported. No support is provided for RSA_SSLV23_PADDING padding."
+    },
+    "convert":["TransactionLength", "RequestID", "KeyName", "KeyInstance", "KeyFormat", "RSACertificateName", "RSAPaddingMode"  ]
+  }
+}

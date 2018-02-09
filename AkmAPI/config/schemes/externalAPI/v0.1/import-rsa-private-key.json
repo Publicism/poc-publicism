@@ -1,0 +1,86 @@
+{
+  "import-rsa-private-key":{
+    "KeyName":{
+      "optional": true,
+      "type":"string",
+      "max":40,
+      "notes":"Blank right padded. Indicates the name of the desired key. Leave blank and specify the Instance if you do not want to store the 40-byte KeyName field."
+    },
+    "KeySizeBits":{
+      "type":"string",
+      "max":5,
+      "validation":{
+        "value":["01024","02048","03072","04096"]
+      },
+      "notes":"ASCII, right-justified, with leading zeros."
+    },
+    "ActivationDate":{
+      "type":"string",
+      "max":8,
+      "notes":"ASCII, case insensitive. CCYYMMDD format. 00000000 indicates key is immediately usable."
+    },
+    "ExpirationDate":{
+      "type":"string",
+      "max":8,
+      "notes":"ASCII. CCYYMMDD format. 00000000 indicates key does not expire."
+    },
+    "DeletableFlag":{
+      "type":"string",
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"ASCII, case insensitive. The value of Y indicates the encryption key can be deleted. The value of N indicates the key cannot be deleted."
+    },
+    "MirrorFlag":{
+      "type":"string",
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"ASCII, case insensitive. The value of Y indicates the key is mirrored to a high availability Alliance Key Manager. The value of N indicates the key is not mirrored."
+    },
+    "AccessFlag":{
+      "type":"string",
+      "max":1,
+      "validation":{
+        "value":["1","2","3","4"]
+      },
+      "notes":"ASCII. 1 = No control. Anyone can access key. 2 = User control. CN on user cert must match a User-Key Name entry in the User Access table. 3 = Group control. OU on user cert must match a Group-Key Name entry in the Group Access table. 4 = User + Group control. CN and OU on user cert must match entries in both the User Access and Group Access tables."
+    },
+    "UserName":{
+      "type":"string",
+      "max":256,
+      "notes":"ASCII, left-justified, with blank padding on the right."
+    },
+    "GroupName":{
+      "type":"string",
+      "max":256,
+      "notes":"ASCII, left-justified, with blank padding on the right."
+    },
+    "ValueCode": {
+      "type":"string",
+      "max": 3,
+      "validation": {
+        "value": [ "DER" ]
+      },
+      "notes": "Indicates the desired key format."
+    },
+    "ValueLength":{
+      "optional": true,
+      "max":5,
+      "notes":"Right-justified, zero-filled on the left. The length of the value field.",
+      "format":"'Calculates automatically"
+    },
+    "Value":{
+      "optional": true,
+      "notes":"This is the binary value of a DER encoded private key.",
+      "format": "Must be in the request body and have name is Value"
+    },
+    "RESTful":{
+      "schema":"KeyName/KeySizeBits/ActivationDate/ExpirationDate/DeletableFlag/MirrorFlag/AccessFlag/UserName/GroupName/ValueCode/ValueLength",
+      "method":"POST",
+      "title":"Use this command to import an RSA private key from your filesystem into your AKM server."
+    }
+  }
+}

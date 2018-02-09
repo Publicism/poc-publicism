@@ -1,0 +1,49 @@
+{
+  "2020_partial":{
+    "HeaderLength":{
+      "max":5,
+      "partial": true,
+      "value":"00039",
+      "notes":"The length of the remainder of the response."
+    },
+    "ResponseID":{
+      "max":4,
+      "partial": true,
+      "value":"2020",
+      "notes":"Identifies the type of response."
+    },
+    "ReturnCode":{
+      "max":4,
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "EndOfResponseFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"This field indicates whether the current request is complete, or whether the data has been split in two parts and the second part is being sent in a partial request."
+    },
+    "PackedFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"If ReturnCode is non-zero, the response ends here."
+    },
+    "CipherTextLength":{
+      "max":5,
+      "notes":"This field indicates the desired ciphertext format in encryption requests and the actual ciphertext format in decryption requests."
+    },
+    "Instance":{
+      "max":24,
+      "partial": true,
+      "notes":"Indicates the key instance."
+    },
+    "CipherText":{
+      "max":16272,
+      "notString":true,
+      "notes":"This field contains the plaintext data sent in an encryption request or returned in a decryption response. In an encryption request, this field must be in binary format."
+    },
+    "convert":[ "ReturnCode", "EndOfResponseFlag",  "PackedFlag", "CipherTextLength", "CipherText" ]
+  }
+}

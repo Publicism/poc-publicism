@@ -1,0 +1,60 @@
+{
+  "1026":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00339",
+      "notes":"The length of the remainder of the transaction."
+    },
+    "RequestID":{
+      "max":4,
+      "value":"1026",
+      "notes":"Identifies the type of transaction."
+    },
+    "ReturnCode":{
+      "max":4,
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"Blank right padded. Indicates the name of the desired key."
+    },
+    "KeyInstance":{
+      "max":24,
+      "notes":"Base64 encoding. Case insensitive. All blanks is current instance"
+    },
+    "KeySizeBits":{
+      "max":4,
+      "validation":{
+        "value":["0128","0192","0256"]
+      },
+      "notes":"ASCII, right-justified, with leading zeros."
+    },
+    "KeyFormat":{
+      "type":"string",
+      "max":3,
+      "validation":{
+        "value": ["BIN","B16","B64" ,"RSA" ]
+      },
+      "notes":"Indicates the desired key format."
+    },
+    "RSAPaddingMode":{
+      "optional": true,
+      "type":"string",
+      "max":1,
+      "validation":{
+        "value":["1","2"]
+      },
+      "notes":"1 = RSA_PKCS1_PADDING. 2 = RSA_PKCS1_OAEP_PADDING (recommended). Note: exporting with RSA_NO_PADDING is considered insecure and is therefore not supported. No support is provided for RSA_SSLV23_PADDING padding."
+    },
+    "ValueLength":{
+      "max":4,
+      "notes":"ASCII, right justified with leading zeros. The number of significant digits in the value."
+    },
+    "Value":{
+      "notString":true,
+      "max":256,
+      "notes":"If the request specified BIN (binary) this field contains the actual key in binary format. For a 256 bit key, the value is left justified in the first 32 bytes of the field. For a 192-bit key, the value is left justified in the first 24 bytes of this field. For a 128 bit key the value is left justified in the first 16 bytes of this field.\n If the request specified B16 (Base16, or hex) this field contains the actual key in hex format. For a 256 bit key, the value is left justified in the first 64 bytes of the field. For a 192-bit key, the value is left justified in the first 48 bytes of this field. For a 128 bit key the value is left justified in the first 32 bytes of this field.\n If the request specified B64 (Base64) this field contains the actual key in Base64 format. For a 256 bit key, the value is left justified in the first 44 bytes of the field. For a 192-bit key, the value is left justified in the first 32 bytes of this field. For a 128 bit key the value is left justified in the first 24 bytes of this field.\n If the request specified RSA (PEM format) this field contains the key with a length of 256 bytes."
+    },
+    "convert":["TransactionLength", "RequestID", "ReturnCode", "KeyName", "KeyInstance", "KeySizeBits", "KeyFormat", "RSAPaddingMode", "ValueLength" , "Value"  ]
+  }
+}

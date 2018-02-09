@@ -1,0 +1,21 @@
+<!-- Wrapper-->
+<div id="wrapper" *ngIf="currentPath !== '**'">
+    <simple-notifications [options]="notificationOptions"></simple-notifications>
+    <!-- Navigation -->
+    <ngx-app-navigation></ngx-app-navigation>
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg">
+        <!-- Page wrapper -->
+        <!--<app-topnavbar></app-topnavbar>-->
+        <!-- Main view  -->
+        <router-outlet></router-outlet>
+        <!-- Footer -->
+        <!--<app-footer></app-footer>-->
+        <!--<div ng-include="'views/common/footer.html'"></div>-->
+    </div>
+    <!-- End page wrapper-->
+    <!-- Right Sidebar -->
+</div>
+<!-- End wrapper-->
+<router-outlet *ngIf="currentPath === '**'"></router-outlet>

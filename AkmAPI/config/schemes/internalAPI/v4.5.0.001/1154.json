@@ -1,0 +1,39 @@
+{
+  "1154":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00339",
+      "notes":"The length of the remainder of the transaction."
+    },
+    "RequestID":{
+      "max":4,
+      "value":"1154",
+      "notes":"Identifies the type of transaction."
+    },
+    "ReturnCode":{
+      "max":4,
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "CertificateType":{
+      "max":1,
+      "validation":{
+        "value":["A","C"]
+      },
+      "notes":"ASCII, case insensitive.  A - CA certificate. C - Client certificate"
+    },
+    "CertificateName":{
+      "max":64,
+      "notes":"CaseSensitive, left justified, blank padded on the right. Must be a file with a .pem extension but the .pem is not included in the name."
+    },
+    "ValueLength":{
+      "max":5,
+      "notes":"ASCII, right justified with leading zeros. The number of significant digits in the value."
+    },
+    "Value":{
+      "notString":true,
+      "max":16304,
+      "notes":"Left justified, blank filled. The name of the certificate without the path."
+    },
+    "convert":["TransactionLength", "RequestID", "ReturnCode", "CertificateType", "CertificateName", "ValueLength" , "Value"  ]
+  }
+}

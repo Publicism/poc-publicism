@@ -1,0 +1,83 @@
+{
+  "2019_partial":{
+    "NewKeyFlag":{
+      "max":1,
+      "optional": true,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"If NewKeyFlag is set to Y in a request header then the 40-byte KeyName field and the 24-byte Instance fields must be included in the header."
+    },
+    "PaddingFlag":{
+      "max":1,
+      "optional": true,
+      "validation":{
+        "value":["7","N"]
+      },
+      "notes":"This field is used in encryption requests to indicates whether you would like the AKM server to add padding to the plaintext before it is encrypted."
+    },
+    "CipherTextFormat":{
+      "max":3,
+      "optional": true,
+      "validation":{
+        "value":["BIN","B16","B64"]
+      },
+      "notes":"This field indicates the desired ciphertext format in encryption requests and the actual ciphertext format in decryption requests."
+    },
+    "PlainTextLength":{
+      "optional": true,
+      "max":5,
+      "notes":"This field indicates the length of the PlainText field sent in encryption requests and returned in decryption responses"
+    },
+    "EndOfRequestFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"This field indicates whether the current request is complete, or whether the data has been split in two parts and the second part is being sent in a partial request."
+    },
+    "PackedFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"Indicates whether the server should pack the responses."
+    },
+    "FinalFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"This field indicates whether the server close the session. To keep the session open, set FinalFlag to N. For the final request, set FinalFlag to Y and the server will close the session."
+    },
+    "NewIVFlag":{
+      "optional": true,
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"This field indicates whether a new IV is being used with CBC Encrypt and CBC Decrypt. You must set NewIVFlag to Y on the first request. If you are splitting a file into multiple segments, you should set  NewIVFlag to Y on the first request and NewIVFlag to N on subsequent requests if you want the server to use the last encrypted block value of each request for CBC chaining."
+    },
+    "IV":{
+      "max":16,
+      "optional": true,
+      "notes":"Present if NewIVFlag is Y. Must be in binary format."
+    },
+    "KeyName":{
+      "max":40,
+      "optional": true,
+      "notes":"Present if NewKeyFlag is Y."
+    },
+    "Instance":{
+      "max":24,
+      "notes":"Present if NewKeyFlag is Y."
+    },
+    "Value":{
+      "max":16272,
+      "notString":true,
+      "optional": true,
+      "notes":"Up to 16,272 bytes with PaddingFlag set to N. Up to 16,271 bytes with PaddingFlag set to 7. If a partial is being used and PaddingFlag=7, this PlainText must be of length modulus 16 and partial PlainTexts may be of any length."
+    },
+    "convert":[ "NewKeyFlag",  "PaddingFlag", "CipherTextFormat", "PlainTextLength", "EndOfRequestFlag", "PackedFlag", "FinalFlag", "NewIVFlag" ]
+  }
+}

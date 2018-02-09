@@ -1,0 +1,69 @@
+server {
+        listen 8080;
+        server_name example.com;
+        root /var/www/prd/web/dist;
+
+        location / {
+                try_files $uri $uri/ /index.html =404;
+        }
+
+        location /memberid {
+                proxy_pass http://127.0.0.1:3000/v0.3/memberid;
+        }
+
+        location /systemchecks {
+                proxy_pass http://127.0.0.1:3000/v0.3/systemchecks;
+        }
+
+        location /systemstatus {
+                proxy_pass http://127.0.0.1:3000/v0.3/systemstatus;
+        }
+
+        location /memberstatuses {
+                proxy_pass http://127.0.0.1:3000/v0.3/memberstatuses;
+        }
+
+        location /members {
+                proxy_pass http://127.0.0.1:3000/v0.3/members;
+        }
+
+        location /dos {
+                proxy_pass http://127.0.0.1:3000/v0.3/dos;
+        }
+
+        location /dorequests {
+                proxy_pass http://127.0.0.1:3000/v0.3/dorequests;
+        }
+
+        location /balance/pay {
+                proxy_pass http://127.0.0.1:3000/v0.3/balance/pay;
+        }
+
+        location /balance/receive {
+                proxy_pass http://127.0.0.1:3000/v0.3/balance/receive;
+        }
+
+        location /balance/current {
+                proxy_pass http://127.0.0.1:3000/v0.3/balance/current;
+        }
+
+        location /balance/settle {
+                proxy_pass http://127.0.0.1:3000/v0.3/balance/settle;
+        }
+}
+#/members/me/dos/all
+#/members/:id/dos/all
+#/members/all/dos/all
+#/dos
+#/dos/:id
+#/dorequests
+#/dorequests
+#/dorequests/:id
+#/memberstatuses
+#/memberid
+#/systemchecks
+#/systemstatus
+#/balance/pay
+#/balance/receive
+#/balance/current
+#/balance/settle

@@ -1,0 +1,28 @@
+{
+  "get-symmetric-key":{
+    "KeyName":{
+      "type":"string",
+      "max":40,
+      "notes":"Blank right padded. Indicates the name of the desired key. Leave blank and specify the Instance if you do not want to store the 40-byte KeyName field."
+    },
+    "Instance":{
+      "optional": true,
+      "type":"string",
+      "max":24,
+      "notes":"Indicates the desired key instance.Use all blanks for the current instance."
+    },
+    "KeyFormat":{
+      "type":"string",
+      "max":3,
+      "validation":{
+        "value": ["BIN","B16","B64"]
+      },
+      "notes":"Indicates the desired key format."
+    },
+    "RESTful":{
+      "schema":"KeyName/Instance/KeyFormat",
+      "method":"GET",
+      "title":"The following tables show the fields used in the Get Symmetric Key request and response."
+    }
+  }
+}

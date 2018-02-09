@@ -1,0 +1,28 @@
+{
+  "1230":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00096",
+      "notes":"The length of the remainder of the request."
+    },
+    "TransactiontID":{
+      "max":4,
+      "value":"1230",
+      "notes":"Identifies the type of Transaction."
+    },
+    "ReturnCode":{
+      "max":4,
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "Instance":{
+      "max":24,
+      "notes":"Base64 encoding. Case sensitive.."
+    },
+    "PairedInstance":{
+      "max":24,
+      "notes":" Base64 encoding. Case sensitive. If there is no paired public key this field will be blanks."
+    },
+
+    "convert":["TransactionLength", "TransactiontID", "ReturnCode",  "Instance", "PairedInstance" ]
+  }
+}

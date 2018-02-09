@@ -1,0 +1,27 @@
+{
+  "1024":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00072",
+      "notes":"The length of the remainder of the request."
+    },
+    "TransactiontID":{
+      "max":4,
+      "value":"1024",
+      "notes":"Identifies the type of Transaction."
+    },
+    "ReturnCode":{
+      "max":4,
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"Blank right padded. Indicates the key name."
+    },
+    "Instance":{
+      "max":24,
+      "notes":"Indicates the key instance."
+    },
+    "convert":["TransactionLength", "TransactiontID", "ReturnCode",  "KeyName", "Instance" ]
+  }
+}

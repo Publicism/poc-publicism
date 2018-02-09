@@ -1,0 +1,33 @@
+{
+  "certificates": {
+    "admin":{
+      "ca": "AKMRootCACertificate.pem",
+      "key": "AKMAdminPrivateKey.pem",
+      "cert": "AKMAdminCertificate.pem"
+    },
+    "client":{
+      "ca": "AKMRootCACertificate.pem",
+      "key": "AKMClientPrivateKey.pem",
+      "cert": "AKMClientCertificate.pem"
+    }
+  },
+  "encryptor":" AKM",
+  "lang":"localizations/en",
+  "adminRouters":[
+    "сreate-symmetric-key",
+    "сreate-rsa-keys",
+    "delete-symmetric-key",
+    "delete-rsa-keys",
+    "delete-certificate",
+    "import-symmetric-key",
+    "export-symmetric-key",
+    "import-certificate",
+    "export-certificate",
+    "import-rsa-private-key",
+    "import-rsa-public-key",
+    "export-rsa-public-key",
+    "import-private-key"
+  ],
+  "encryptionRouters":["encrypt-with-symmetric-key"],
+  "decryptionRouters":["decrypt-with-symmetric-key"]
+}

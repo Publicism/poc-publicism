@@ -1,0 +1,20 @@
+{
+  "delete-certificate":{
+    "CertificateType":{
+      "max":1,
+      "validation":{
+        "value":["A","C"]
+      },
+      "notes":"ASCII, case insensitive.  A - CA certificate. C - Client certificate"
+    },
+    "CertificateName":{
+      "max":64,
+      "notes":"CaseSensitive, left justified, blank padded on the right. Must be a file with a .pem extension but the .pem is not included in the name."
+    },
+    "RESTful":{
+      "schema":"CertificateType/CertificateName",
+      "method":"DELETE",
+      "title":"This API deletes a certificate file in a known directory on the AKM key server."
+    }
+  }
+}

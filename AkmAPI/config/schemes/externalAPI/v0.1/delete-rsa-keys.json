@@ -1,0 +1,14 @@
+{
+  "delete-rsa-keys":{
+    "KeyName":{
+      "type":"string",
+      "max":40,
+      "notes":"Blank right padded. Indicates the name of the desired key."
+    },
+    "RESTful":{
+      "schema":"KeyName",
+      "method":"DELETE",
+      "title":"Use this command to delete both public and private key by key name."
+    }
+  }
+}

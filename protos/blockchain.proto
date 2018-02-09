@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package dcms.blockchain;
+
+service Blockchain {
+    // Add DO record
+    rpc AddDataObject(MemberDataObject) returns (StoredDataObject) {}
+    // Get all my DOs 
+    rpc GetMemberDataObjects(MemberId) returns (DataObjectsList) {}
+    // Get DO network info
+    rpc GetDataObjectNetworkInfo(DataObjectNetworkInfoRequest) returns (DataObjectNetworkInfo) {}
+    // Request DO from network
+    rpc MakeRequest(DataObjectRequest) returns (StoredDataObjectRequest) {}
+    // Update DO record
+    rpc UpdateDataObject(DataObjectUpdate) returns (StoredDataObject) {}
+    // Check DO requests
+    rpc GetDataObjectRequests(Empty) returns (DataObjectRequestsList) {}
+
+    rpc UpdateMember(Member) returns (Member) {}
+    rpc GetMemberInfo(MemberId) returns (Member) {}
+    rpc GetAllMembers(Empty) returns (MembersList) {}
+}
+
+message Empty {
+}
+
+message DataObjectsList {
+    repeated StoredDataObject dataObjects = 1;
+}
+
+message DataObjectNetworkInfoRequest {
+    DataObjectId dataObjectId = 1;
+    repeated MemberId memberIds = 2;
+}
+
+message DataObjectNetworkInfo {
+    repeated DataObjectNetworkInfoItem list = 1;
+}
+
+message DataObjectNetworkInfoItem {
+    MemberId memberId = 1;
+    oneof item {
+        StoredDataObject available = 2;
+    }
+}
+
+message DataObjectUpdate {
+    DataObjectId id = 1;
+    bytes hash = 2;
+    MemberId memberId = 3;
+    string info = 4;
+}
+
+message MemberDataObject {
+    MemberId memberId = 1;
+    DataObject dataObject = 2;
+}
+
+message DataObject {
+    DataObjectId id = 1;
+    bytes hash = 2;
+    string info = 3;
+}
+
+message StoredDataObject {
+    DataObjectId id = 1;
+    bytes hash = 2;
+    string info = 3;
+    Timestamp createdAt = 4;
+    Timestamp updatedAt = 5;
+}
+
+message MemberId  {
+    bytes id = 1;
+}
+
+message DataObjectId {
+    bytes id = 1;
+}
+
+message DataObjectRequest {
+    DataObjectId dataObjectId = 1;
+    MemberId memberId = 2;
+}
+
+message StoredDataObjectRequest {
+    RequestId id = 1;
+    MemberId memberId = 2;
+    DataObjectId dataObjectId = 3;
+    Timestamp createdAt = 4;
+}
+
+message DataObjectRequestsList {
+    repeated StoredDataObjectRequest list = 1;
+}
+
+message RequestId {
+    bytes id = 1;
+}
+
+message Member {
+    MemberId id = 1;
+    string name = 2;
+    string info = 3;
+}
+
+message MembersList {
+    repeated Member list = 1;
+}
+
+message Timestamp {
+  int64 seconds = 1;
+  int32 nanos = 2;
+}

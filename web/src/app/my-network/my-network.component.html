@@ -1,0 +1,41 @@
+<div>
+    <div class="row wrapper border-bottom white-bg page-heading ng-scope">
+        <div class="col-lg-10">
+            <h2>My Network checks</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a>Home</a>
+                </li>
+                <li class="active">
+                    <strong>My Network checks</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight ng-scope">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <table class="table table-striped network-check">
+                        <thead>
+                        <tr>
+                            <th>Functionality</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let check of networkChecks">
+                            <td>{{ check.checkname }}</td>
+                            <td>
+                                <span class="badge" [ngClass]="getBadgeClass(check)" title="{{ check.checkdescription }}">{{ check.checkstatus }}</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

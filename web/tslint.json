@@ -1,0 +1,17 @@
+{
+  "rulesDirectory": [
+    "node_modules/codelyzer"
+  ],
+  "extends": [
+    "angular-tslint-rules"
+  ],
+  "rules": {
+    "curly": true,
+    "prefer-conditional-expression": false,
+    "indent": [
+      true,
+      "spaces",
+      4
+    ]
+  }
+}

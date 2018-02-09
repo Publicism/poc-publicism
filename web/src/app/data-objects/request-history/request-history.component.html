@@ -1,0 +1,51 @@
+<div>
+    <div class="row wrapper border-bottom white-bg page-heading ng-scope">
+        <div class="col-lg-10">
+            <h2>Request History</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a>Home</a>
+                </li>
+                <li class="active">
+                    <strong>Request History</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight ng-scope">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Member ID</th>
+                                <th>Data Object ID</th>
+                                <th>Requested At</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let dataObject of dataObjects">
+                                <td>{{ dataObject.requestid }}</td>
+                                <td>
+                                    {{ dataObject.memberid }}
+                                    <span class="badge badge-success" *ngIf="dataObject.memberid == currentMemberId">Me</span>
+                                </td>
+                                <td>{{ dataObject.objectid }}</td>
+                                <td>{{ dataObject.requestdate | amDateFormat: 'YYYY-MM-DD HH:mm:ss' }}</td>
+                                <td class="text-right">
+                                    <a class="btn btn-sm btn-primary" [routerLink]="['/request-history', dataObject.objectid, dataObject.memberid]" (click)="gotoDetail(dataObject)"><i class="fa fa-eye"></i>&nbsp;View</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

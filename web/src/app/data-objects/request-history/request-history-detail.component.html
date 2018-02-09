@@ -1,0 +1,36 @@
+<div *ngIf="tableLoading">
+    <div class="sk-three-bounce table-preloader">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+    </div>
+</div>
+<table class="table table-striped" *ngIf="!tableLoading">
+    <thead>
+    <tr>
+        <th>Member ID</th>
+        <th>Status</th>
+        <th>DO Hash</th>
+        <th>DO Updated At</th>
+        <th>Request Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let detail of details">
+        <td>{{ detail.memberid }}</td>
+        <td>
+            <span class="badge" [ngClass]="getStatusBadgeClass(detail)" *ngIf="detail.dostatus === 'publisher' || detail.memberid == memberId">{{ _.capitalize(detail.dostatus) }}</span>
+        </td>
+        <td>{{ detail.dohash }}</td>
+        <td>{{ detail.doupdatedate }}</td>
+        <td>
+            <span class="badge" [ngClass]="getFileStatusBadgeClass(detail)">{{ _.capitalize(detail.dorequeststatus) }}</span>
+        </td>
+        <td class="text-right">
+            <button [ngClass]="{'disabled': detail.dorequeststatus === 'not found'}" (click)="showContent(detail)" class="btn btn-primary btn-sm">
+                <i class="fa fa-file-text-o"></i> Show Content
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>

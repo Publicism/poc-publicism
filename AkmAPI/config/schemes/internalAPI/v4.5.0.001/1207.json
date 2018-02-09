@@ -1,0 +1,64 @@
+{
+  "1207":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00580",
+      "notes":"The length of the remainder of the transaction."
+    },
+    "RequestID":{
+      "max":4,
+      "value":"1207",
+      "notes":"Identifies the type of request."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"Blank right padded. Indicates the name of the desired key. Leave blank and specify the Instance if you do not want to store the 40-byte KeyName field."
+    },
+    "KeySizeBits":{
+      "max":5,
+      "validation":{
+        "value":["01024","02048","03072","04096"]
+      },
+      "notes":"ASCII, right-justified, with leading zeros."
+    },
+    "ActivationDate":{
+      "max":8,
+      "notes":"ASCII, case insensitive. CCYYMMDD format. 00000000 indicates key is immediately usable."
+    },
+    "ExpirationDate":{
+      "max":8,
+      "notes":"ASCII. CCYYMMDD format. 00000000 indicates key does not expire."
+    },
+    "DeletableFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"ASCII, case insensitive. The value of Y indicates the encryption key can be deleted. The value of N indicates the key cannot be deleted."
+    },
+    "MirrorFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"ASCII, case insensitive. The value of Y indicates the key is mirrored to a high availability Alliance Key Manager. The value of N indicates the key is not mirrored."
+    },
+    "AccessFlag":{
+      "max":1,
+      "validation":{
+        "value":["1","2","3","4"]
+      },
+      "notes":"ASCII. 1 = No control. Anyone can access key. 2 = User control. CN on user cert must match a User-Key Name entry in the User Access table. 3 = Group control. OU on user cert must match a Group-Key Name entry in the Group Access table. 4 = User + Group control. CN and OU on user cert must match entries in both the User Access and Group Access tables."
+    },
+    "UserName":{
+      "max":256,
+      "notes":"ASCII, left-justified, with blank padding on the right."
+    },
+    "GroupName":{
+      "max":256,
+      "notes":"ASCII, left-justified, with blank padding on the right."
+    },
+
+    "convert":["TransactionLength", "RequestID", "KeyName",  "KeySizeBits", "ActivationDate", "ExpirationDate", "DeletableFlag", "MirrorFlag", "AccessFlag", "UserName", "GroupName" ]
+  }
+}

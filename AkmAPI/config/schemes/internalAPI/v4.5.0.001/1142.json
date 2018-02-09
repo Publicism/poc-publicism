@@ -1,0 +1,19 @@
+{
+  "1142":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00008",
+      "notes":"The length of the remainder of the request."
+    },
+    "RequestID": {
+      "max": 4,
+      "value": "1142",
+      "notes": "Identifies the type of request."
+    },
+    "ReturnCode":{
+      "max":4,
+      "notes":"ASCII, right-justified, with leading zeros. Value 0000 indicates success. Value 0001-9999 represents an error condition."
+    },
+    "convert":["TransactionLength", "RequestID", "ReturnCode" ]
+  }
+}

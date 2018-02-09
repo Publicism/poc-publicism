@@ -1,0 +1,36 @@
+{
+  "1143":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00074",
+      "notes":"The length of the remainder of the transaction."
+    },
+    "RequestID":{
+      "max":4,
+      "value":"1143",
+      "notes":"Identifies the type of request."
+    },
+    "PrivateKeyName":{
+      "max":64,
+      "notes":"ASCII. CaseSensitive, left justified, blank padded on the right. Must be a file with a .pem extension but the .pem is not included in the name."
+    },
+    "OverwriteFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"Y - Overwrite existing certificate. N - Do not overwrite"
+    },
+    "ValueLength":{
+      "optional": true,
+      "max":5,
+      "notes":"ASCII. Right-justified, zero-filled on the left. The length of the private key data field."
+    },
+    "Value":{
+      "optional": true,
+      "max":16305,
+      "notes":"The binary contents of the .pem certificate file."
+    },
+    "convert":["TransactionLength", "RequestID", "PrivateKeyName", "OverwriteFlag" , "ValueLength" ]
+  }
+}

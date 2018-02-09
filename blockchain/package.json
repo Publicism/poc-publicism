@@ -1,0 +1,50 @@
+{
+  "name": "chaincore",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "serve": "node dist/index.js",
+    "truffle-test": "truffle test test/truffle/*.test.js",
+    "truffle-migrate": "truffle migrate --reset",
+    "build": "babel src/ -d dist/",
+    "pretest": "yarn run build",
+    "test": "mocha dist/test/**/*.test.js",
+    "test-integration": "mocha dist/test-integration/**/*.test.js",
+    "prepublish": "yarn run build",
+    "testrpc": "testrpc -a 4 -l 24000000 -m \"lion salon open vague century present frown hungry siren return early custom\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bignumber.js": "^4.0.2",
+    "bluebird": "^3.5.0",
+    "chai": "^3.5.0",
+    "config": "^1.26.1",
+    "ethereumjs-util": "^5.1.1",
+    "google-protobuf": "^3.3.0",
+    "grpc": "~1.3.2",
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.26",
+    "truffle": "^3.2.2",
+    "truffle-contract": "^2.0.0",
+    "web3": "^0.19.0",
+    "zeppelin-solidity": "https://github.com/OpenZeppelin/zeppelin-solidity"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-runtime": "^6.23.0",
+    "ethereumjs-testrpc": "^3.0.5",
+    "flow-bin": "0.46.0",
+    "mocha": "^3.4.1"
+  },
+  "engines": {
+    "node": ">=8.1"
+  }
+}

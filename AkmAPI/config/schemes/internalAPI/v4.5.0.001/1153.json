@@ -1,0 +1,26 @@
+{
+  "1153":{
+    "TransactionLength":{
+      "max":5,
+      "value":"00136",
+      "notes":"The length of the remainder of the transaction."
+    },
+    "RequestID":{
+      "max":4,
+      "value":"1153",
+      "notes":"Identifies the type of transaction."
+    },
+    "CertificateType":{
+      "max":1,
+      "validation":{
+        "value":["A","C"]
+      },
+      "notes":"ASCII, case insensitive.  A - CA certificate. C - Client certificate"
+    },
+    "CertificateName":{
+      "max":64,
+      "notes":"CaseSensitive, left justified, blank padded on the right. Must be a file with a .pem extension but the .pem is not included in the name."
+    },
+    "convert":["TransactionLength", "RequestID", "CertificateType", "CertificateName" ]
+  }
+}

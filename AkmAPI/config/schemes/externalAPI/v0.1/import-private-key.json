@@ -1,0 +1,30 @@
+{
+  "import-private-key":{
+    "PrivateKeyName":{
+      "max":64,
+      "notes":"ASCII. CaseSensitive, left justified, blank padded on the right. Must be a file with a .pem extension but the .pem is not included in the name."
+    },
+    "OverwriteFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"Y - Overwrite existing certificate. N - Do not overwrite"
+    },
+    "ValueLength":{
+      "optional": true,
+      "max":5,
+      "notes":"ASCII. Right-justified, zero-filled on the left. The length of the private key data field."
+    },
+    "Value":{
+      "optional": true,
+      "max":16305,
+      "notes":"The binary contents of the .pem certificate file."
+    },
+    "RESTful":{
+      "schema":"PrivateKeyName/OverwriteFlag",
+      "method":"POST",
+      "title":"Use this command to import an RSA private key from your filesystem into your AKM server."
+    }
+  }
+}

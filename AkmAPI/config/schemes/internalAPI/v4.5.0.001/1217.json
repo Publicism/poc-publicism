@@ -1,0 +1,19 @@
+{
+  "1217":{
+    "HeaderLength":{
+      "max":5,
+      "value":"00044",
+      "notes":"The length of the remainder of the request."
+    },
+    "RequestID":{
+      "max":4,
+      "value":"1217",
+      "notes":"Identifies the type of request."
+    },
+    "KeyName":{
+      "max":40,
+      "notes":"Blank right padded. Indicates the name of the desired key."
+    },
+    "convert":["HeaderLength", "RequestID", "KeyName" ]
+  }
+}

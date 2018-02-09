@@ -1,0 +1,43 @@
+{
+  "encrypt-with-symmetric-key_partial":{
+    "EndOfRequestFlag":{
+      "max":1,
+      "optional": true,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"This field indicates whether the current request is complete, or whether the data has been split in two parts and the second part is being sent in a partial request."
+    },
+    "ValueLength":{
+      "notes":"This field indicates the length of the file sent in encryption requests and returned in decryption responses"
+    },
+    "PackedFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"Indicates whether the server should pack the responses."
+    },
+    "FinalFlag":{
+      "max":1,
+      "validation":{
+        "value":["Y","N"]
+      },
+      "notes":"This field indicates whether the server close the session. To keep the session open, set FinalFlag to N. For the final request, set FinalFlag to Y and the server will close the session."
+    },
+    "PlainTextLength":{
+      "max":5,
+      "notes":"This field contains the plaintext data sent in an encryption request or returned in a decryption response. In an encryption request, this field must be in binary format."
+    },
+    "Value":{
+      "optional": true,
+      "max":16272,
+      "notes":"The binary contents of a file."
+    },
+    "RESTful":{
+      "schema":"EndOfRequestFlag/PackedFlag/FinalFlag/PackedFlag/PlainTextLength",
+      "method":"POST",
+      "title":"Encrypt CBC"
+    }
+  }
+}
